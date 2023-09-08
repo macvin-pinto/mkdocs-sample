@@ -62,23 +62,9 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git checkout gh-pages
-
-      - name: Check structure
-        run: |
-          ls -lah
-          rsync -avz --delete ./_gh-pages/ ./
-
-      - name: Check structure after matrix.python-version
-        run: |
-          git status
-          ls -lah
-
-      - name: Commit and Push
-        run: |
-          git add .
-          git commit -m "Update pages branch with compiled content"
-          git push origin gh-pages
+        
 
       - name: Push to GH-Pages
-        run: echo "Push"
+        run: |
+          echo "Push"
+          python -m mkdocs gh-deploy
