@@ -41,9 +41,24 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
+      - name: Show files structure Before
+        run: |
+          git status
+          ls -lah
+      
       - name: Build Pages
         run: |
-          python -m mkdocs build
-          python -m mkdocs gh-deploy
+          python -m mkdocs Build
 
-  
+      - name: Show files structure
+        run: |
+          git status
+          ls -lah
+
+      - name: Set git identity
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+
+      - name: Push to GH-Pages
+        run: echo "Push"
