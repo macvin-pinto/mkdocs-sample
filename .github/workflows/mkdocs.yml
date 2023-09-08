@@ -46,6 +46,7 @@ jobs:
           git status
           ls -lah
           git remote -v
+          git fetch
           git branch
       
       - name: Build Pages
