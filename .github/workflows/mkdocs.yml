@@ -48,7 +48,7 @@ jobs:
       
       - name: Build Pages
         run: |
-          python -m mkdocs Build
+          python -m mkdocs build
 
       - name: Show files structure
         run: |
