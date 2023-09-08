@@ -45,6 +45,7 @@ jobs:
         run: |
           git status
           ls -lah
+          git remote -v
       
       - name: Build Pages
         run: |
